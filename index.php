@@ -14,9 +14,8 @@
             <p>Salasana: <input type="password" name="salasana" /></p>
             <p><input type="submit" value="Kirjaudu"/></p>
         </form>
-        
+
         <p>Uusi käyttäjä? <a href="rekisteroidy.php">Rekisteröidy</a> </p>
 
     </body>
 </html>
-

@@ -1,0 +1,6 @@
+--käyttäjä-taulun luonti
+CREATE TABLE kayttaja (
+username varchar PRIMARY KEY,
+password varchar;
+);
+
