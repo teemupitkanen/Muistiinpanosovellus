@@ -1,23 +1,21 @@
 --käyttäjä-taulun luonti
 CREATE TABLE kayttaja (
 username varchar PRIMARY KEY,
-password varchar NOT NULL,
+password varchar NOT NULL
 );
 
 --muistilista-taulun luonti
 CREATE TABLE muistilista(
-tunnus integer PRIMARY KEY,
+tunnus serial PRIMARY KEY,
 kayttaja varchar REFERENCES kayttaja(username),
 määrä integer
 );
 
---muistiinpano-taulun luonti
-CREATE TABLE muistiinpano(
-tunnus integer PRIMARY KEY,
+--prioriteetti-taulun luonti
+CREATE TABLE prioriteetti(
+arvo integer PRIMARY KEY,
 muistilista integer REFERENCES muistilista(tunnus),
-otsikko varchar NOT NULL,
-sisalto varchar,
-prioriteetti integer REFERENCES prioriteetti(arvo)
+kuvaus varchar
 );
 
 --luokka-taulun luonti
@@ -27,11 +25,13 @@ muistilista integer REFERENCES muistilista(tunnus),
 nimi varchar
 );
 
---prioriteetti-taulun luonti
-CREATE TABLE prioriteetti(
-arvo integer PRIMARY KEY,
+--muistiinpano-taulun luonti
+CREATE TABLE muistiinpano(
+tunnus integer PRIMARY KEY,
 muistilista integer REFERENCES muistilista(tunnus),
-kuvaus varchar
+otsikko varchar NOT NULL,
+sisalto varchar,
+prioriteetti integer REFERENCES prioriteetti(arvo)
 );
 
 --luokan_muistiinpano-taulun luonti
