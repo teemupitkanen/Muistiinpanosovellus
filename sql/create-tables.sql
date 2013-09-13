@@ -27,7 +27,7 @@ muistilista integer REFERENCES muistilista(tunnus),
 nimi varchar
 );
 
---prioriteetti-tulun luonti
+--prioriteetti-taulun luonti
 CREATE TABLE prioriteetti(
 arvo integer PRIMARY KEY,
 muistilista integer REFERENCES muistilista(tunnus),
