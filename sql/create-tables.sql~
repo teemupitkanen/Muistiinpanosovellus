@@ -2,12 +2,12 @@
 CREATE TABLE kayttaja (
 username varchar PRIMARY KEY,
 password varchar NOT NULL,
+muistilista integer REFERENCES muistilista(tunnus)
 );
 
 --muistilista-taulun luonti
 CREATE TABLE muistilista(
 tunnus integer PRIMARY KEY,
-kayttaja varchar REFERENCES kayttaja(username),
 määrä integer
 );
 
@@ -17,7 +17,7 @@ tunnus integer PRIMARY KEY,
 muistilista integer REFERENCES muistilista(tunnus),
 otsikko varchar NOT NULL,
 sisalto varchar,
-prioriteetti integer REFERENCES prioriteetti(arvo)
+muokattu TIMESTAMP
 );
 
 --luokka-taulun luonti
