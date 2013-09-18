@@ -1,6 +1,6 @@
-INSERT INTO kayttaja (username, password) VALUES
-  ('testi1', 'salainen'),
-  ('testi2', 'salaisempi');
+INSERT INTO kayttaja (id, username, password) VALUES
+  ('1','testi1', 'salainen'),
+  ('2','testi2', 'salaisempi');
 
 INSERT INTO muistilista (tunnus, kayttaja, määrä) VALUES
   ('testi1','1', '3'),

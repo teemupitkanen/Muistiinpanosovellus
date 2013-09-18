@@ -4,18 +4,20 @@
 require_once 'sessio.php';
 
 function ohjaa($osoite) {
-  header("Location: $osoite");
-  exit;
+    header("Location: $osoite");
+    exit;
 }
 
 function on_kirjautunut() {
-  global $sessio;
-  return isset($sessio->kayttaja_id);
+    global $sessio;
+    return isset($sessio->kayttaja_id);
 }
 
 function varmista_kirjautuminen() {
-  if (!on_kirjautunut()) {
-    ohjaa('kirjautuminen.php');
-  }
+    if (!on_kirjautunut()) {
+        ohjaa('kirjautumissivu.php');
+    }
 }
+
+
 ?>

@@ -1,6 +1,5 @@
-<?php
-include "yleisnakyma.php";
-?>
+
+
 
 <div class="container">
     <h1>Muistilista</h1>

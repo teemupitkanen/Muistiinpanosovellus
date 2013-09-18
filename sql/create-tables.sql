@@ -1,13 +1,14 @@
 --käyttäjä-taulun luonti
 CREATE TABLE kayttaja (
-username varchar PRIMARY KEY,
+id serial PRIMARY KEY,
+username varchar NOT NULL,
 password varchar NOT NULL
 );
 
 --muistilista-taulun luonti
 CREATE TABLE muistilista(
 tunnus serial PRIMARY KEY,
-kayttaja varchar REFERENCES kayttaja(username),
+kayttaja integer REFERENCES kayttaja(id),
 määrä integer
 );
 

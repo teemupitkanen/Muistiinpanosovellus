@@ -31,9 +31,10 @@
 
        <div class="container">
            <?php
-//           $polku="views/".$sivu;
- //           include $polku;
+            include $sivu;
             ?>
+           <br><br><br>
+           Tietokantasovellus s2013 - Teemu Pitkänen
         </div>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="../js/bootstrap.min.js"></script>
