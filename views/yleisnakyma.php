@@ -16,22 +16,26 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="muistilista.html">Muistilista</a>
+                    <a class="navbar-brand" href="muistilista.php">Muistilista</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="uusimuistiinpano.html">Lisää muistiinpano</a></li>
-                        <li><a href="luokat.html">Luokat</a></li>
-                        <li><a href="prioriteetit.html">Prioriteetit</a></li>
-                        <li><a href="kirjautumissivu.html">Kirjaudu ulos</a></li>
+                        <li><a href="uusimuistiinpano.php">Lisää muistiinpano</a></li>
+                        <li><a href="luokat.php">Luokat</a></li>
+                        <li><a href="prioriteetit.php">Prioriteetit</a></li>
+                        <li><a href="../kirjaudu.php?ulos" method="POST">Kirjaudu ulos</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <?php
-        include 'views/' . $sivu;
-        ?>
-            <script src="http://code.jquery.com/jquery.js"></script>
-            <script src="../js/bootstrap.min.js"></script>
+
+       <div class="container">
+           <?php
+//           $polku="views/".$sivu;
+ //           include $polku;
+            ?>
+        </div>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
     </body>
 </html>
