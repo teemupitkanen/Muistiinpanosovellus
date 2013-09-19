@@ -6,6 +6,7 @@ if (isset($_GET['sisaan'])) {
         $sessio->kayttaja_id = 1;
         ohjaa('muistilista.php');
     } else {
+//        set("kirjautuminen","virhe");
         ohjaa('kirjautumissivu.php?vaaratunnus');
     }
 } elseif (isset($_GET['ulos'])) {

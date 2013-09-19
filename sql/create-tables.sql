@@ -14,9 +14,10 @@ määrä integer
 
 --prioriteetti-taulun luonti
 CREATE TABLE prioriteetti(
-arvo integer PRIMARY KEY,
+arvo integer,
 muistilista integer REFERENCES muistilista(tunnus),
-kuvaus varchar
+kuvaus varchar,
+PRIMARY KEY(arvo, muistilista)
 );
 
 --luokka-taulun luonti
@@ -32,12 +33,13 @@ tunnus integer PRIMARY KEY,
 muistilista integer REFERENCES muistilista(tunnus),
 otsikko varchar NOT NULL,
 sisalto varchar,
-prioriteetti integer REFERENCES prioriteetti(arvo)
+prioriteetti integer,
+FOREIGN KEY (prioriteetti, muistilista) REFERENCES prioriteetti(arvo, muistilista)
 );
 
 --luokan_muistiinpano-taulun luonti
 CREATE TABLE luokan_muistiinpano(
-tunnus integer PRIMARY KEY,
+tunnus serial PRIMARY KEY,
 muistiinpano integer REFERENCES muistiinpano(tunnus),
 luokka integer REFERENCES luokka(tunnus)
 );

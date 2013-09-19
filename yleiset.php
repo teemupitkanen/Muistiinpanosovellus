@@ -3,6 +3,12 @@
 //require_once 'avusteet/kyselyt.php';
 require_once 'sessio.php';
 
+
+
+function naytaSivu($sivu) {
+    include "views/sivupohja.php";
+}
+
 function ohjaa($osoite) {
     header("Location: $osoite");
     exit;

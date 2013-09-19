@@ -33,14 +33,14 @@
     <form class="form-inline">
         Tarkastele muistiinpanoja, joiden prioriteetti on 
         <select>
-            <option>-</option>
+            <option>mikä tahansa</option>
             <option>10</option>
             <option>7</option>
             <option>3</option>
         </select> 
         ja luokka on
         <select>
-            <option>-</option>
+            <option>mikä tahansa</option>
             <option>Arki</option>
             <option>Koulu</option>
             <option>liikunta</option>
