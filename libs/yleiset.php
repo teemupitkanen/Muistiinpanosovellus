@@ -1,7 +1,7 @@
 <?php
 
-//require_once 'avusteet/kyselyt.php';
 require_once 'sessio.php';
+require_once 'tietokantayhteys.php';
 
 
 
@@ -21,7 +21,7 @@ function on_kirjautunut() {
 
 function varmista_kirjautuminen() {
     if (!on_kirjautunut()) {
-        ohjaa('kirjautumissivu.php');
+        ohjaa('index.php');
     }
 }
 

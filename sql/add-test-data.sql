@@ -2,6 +2,8 @@ INSERT INTO kayttaja (id, username, password) VALUES
   ('1','testi1', 'salainen'),
   ('2','testi2', 'salaisempi');
 
+SELECT setval('kayttaja_id_seq', 2);
+
 INSERT INTO muistilista (tunnus, kayttaja, määrä) VALUES
   ('1','1', '3'),
   ('2','2', '2');

@@ -1,7 +1,7 @@
 
 <?php
 
-require_once 'yleiset.php';
+require_once 'libs/yleiset.php';
 
 naytaSivu("views/kirjautumisview.php");
 ?>

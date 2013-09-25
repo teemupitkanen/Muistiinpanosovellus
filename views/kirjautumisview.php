@@ -18,7 +18,7 @@
         <p><input type="submit" class="btn" value="Kirjaudu"/></p>
     </form>
 
-    <p>Uusi käyttäjä? <a href="rekisteroitymissivu.php">Rekisteröidy</a> </p>
+    <p>Uusi käyttäjä? <a href="rekisteroityminen.php">Rekisteröidy</a> </p>
 
 
 </div> 

@@ -1,17 +1,20 @@
 <?php
-require_once 'yleiset.php';
+
+require_once 'libs/yleiset.php';
+include 'models/kayttaja.php';
 
 if (isset($_GET['sisaan'])) {
-    if ($_POST['tunnus'] == "testitunnus" && $_POST['salasana'] == "testisana") {
-        $sessio->kayttaja_id = 1;
+    // if ($_POST['tunnus'] == "testitunnus" && $_POST['salasana'] == "testisana") {
+    $kayttajanid=Kayttaja::tunnista($_POST['tunnus'], $_POST['salasana']);
+    if ($kayttajanid != NULL) {
+        $sessio->kayttaja_id = $kayttajanid;
         ohjaa('muistilista.php');
     } else {
-//        set("kirjautuminen","virhe");
-        ohjaa('kirjautumissivu.php?vaaratunnus');
+        ohjaa('index.php?vaaratunnus');
     }
 } elseif (isset($_GET['ulos'])) {
     unset($sessio->kayttaja_id);
-    ohjaa('kirjautumissivu.php');
+    ohjaa('index.php');
 } else {
     die('Laiton toiminto!');
 }
