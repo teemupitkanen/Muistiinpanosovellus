@@ -7,7 +7,7 @@ if ($_POST['salasana'] != $_POST['salasana2']) {
     ohjaa('rekisteroityminen.php?erisala');
 }
 
-if (Kayttaja::tunnus_kaytossa($_POST['tunnus']) != null) {
+if (Kayttaja::kayttajan_id($_POST['tunnus']) != null) {
     ohjaa('rekisteroityminen.php?tunnuskaytossa');
 } else {
     Kayttaja::lisaa_kayttaja($_POST['tunnus'], $_POST['salasana']);

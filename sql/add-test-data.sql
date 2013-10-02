@@ -4,25 +4,20 @@ INSERT INTO kayttaja (id, username, password) VALUES
 
 SELECT setval('kayttaja_id_seq', 2);
 
-INSERT INTO muistilista (tunnus, kayttaja, määrä) VALUES
-  ('1','1', '3'),
-  ('2','2', '2');
-
-
-INSERT INTO prioriteetti (arvo,muistilista,kuvaus) VALUES
+INSERT INTO prioriteetti (arvo,kayttaja,kuvaus) VALUES
   ('4', '1','ei kovin tärkeä'),
   ('9', '1','tosi tärkeä'),
   ('4', '2','aika tärkeä'),
   ('1', '2','turha');
 
-INSERT INTO muistiinpano (tunnus, muistilista, otsikko, sisalto, prioriteetti) VALUES
+INSERT INTO muistiinpano (tunnus, kayttaja, otsikko, sisalto, prioriteetti) VALUES
   ('111', '1','käy lenkillä','Muista käydä lenkillä Eskon kanssa','4'),
   ('112', '1','syö','Älä unohda syödä maksalaatikkoa jääkaapista','4'),
   ('113', '1','koe','Lue matikan tenttiin','9'),
   ('121', '2','katso breaking bad','Breaking bad tänään nelosella klo 21','4'),
   ('122', '2','mene nukkumaan','uni tekee hyvää jee jee','1');
 
-INSERT INTO luokka (tunnus, muistilista, nimi) VALUES
+INSERT INTO luokka (tunnus, kayttaja, nimi) VALUES
   ('11', '1','koulujutut'),
   ('12', '1','liikunta'),
   ('13', '1','arki'),
@@ -36,6 +31,5 @@ INSERT INTO luokan_muistiinpano (tunnus, muistiinpano, luokka) VALUES
   ('4', '113','11'),
   ('5', '121','21'),
   ('6', '122','22');
-
 
 

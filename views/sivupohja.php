@@ -20,9 +20,9 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Lisää muistiinpano</a></li>
+                        <li><a href="../uusimuistiinpano.php">Lisää muistiinpano</a></li>
                         <li><a href="#">Luokat</a></li>
-                        <li><a href="#">Prioriteetit</a></li>
+                        <li><a href="../prioriteetit.php">Prioriteetit</a></li>
                         <li><a href="../kirjaudu.php?ulos" method="POST">Kirjaudu ulos</a></li>
                     </ul>
                 </div>
@@ -40,3 +40,4 @@
         <script src="../js/bootstrap.min.js"></script>
     </body>
 </html>
+

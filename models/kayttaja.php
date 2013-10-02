@@ -7,9 +7,6 @@ class Kayttaja {
     private $salasana;
 
     function __construct() {
-        $this->kayttajatunnus = testitunnus;
-        $this->salasana = testisana;
-        $this->id = 1;
     }
 
     public function tunnista($tunnus, $salasana) {
@@ -22,7 +19,7 @@ class Kayttaja {
         }
     }
 
-    public function tunnus_kaytossa($tunnus) {
+    public function kayttajan_id($tunnus) {
         $yhteys = luo_yhteys();
         $kysely = $yhteys->prepare('SELECT id FROM kayttaja WHERE username = ?');
         if ($kysely->execute(array($tunnus))) {

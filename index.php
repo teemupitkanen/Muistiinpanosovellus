@@ -1,4 +1,3 @@
-
 <?php
 
 require_once 'libs/yleiset.php';
