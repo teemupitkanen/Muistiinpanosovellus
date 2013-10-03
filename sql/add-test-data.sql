@@ -4,32 +4,36 @@ INSERT INTO kayttaja (id, username, password) VALUES
 
 SELECT setval('kayttaja_id_seq', 2);
 
-INSERT INTO prioriteetti (arvo,kayttaja,kuvaus) VALUES
-  ('4', '1','ei kovin tärkeä'),
-  ('9', '1','tosi tärkeä'),
-  ('4', '2','aika tärkeä'),
-  ('1', '2','turha');
+INSERT INTO prioriteetti (tunnus,arvo,kayttaja,kuvaus) VALUES
+  ('1','4', '1','ei kovin tärkeä'),
+  ('2','9', '1','tosi tärkeä'),
+  ('3','4', '2','aika tärkeä'),
+  ('4','1', '2','turha');
+SELECT setval('prioriteetti_tunnus_seq', 4);
 
 INSERT INTO muistiinpano (tunnus, kayttaja, otsikko, sisalto, prioriteetti) VALUES
-  ('111', '1','käy lenkillä','Muista käydä lenkillä Eskon kanssa','4'),
-  ('112', '1','syö','Älä unohda syödä maksalaatikkoa jääkaapista','4'),
-  ('113', '1','koe','Lue matikan tenttiin','9'),
-  ('121', '2','katso breaking bad','Breaking bad tänään nelosella klo 21','4'),
-  ('122', '2','mene nukkumaan','uni tekee hyvää jee jee','1');
+  ('1', '1','käy lenkillä','Muista käydä lenkillä Eskon kanssa','1'),
+  ('2', '1','syö','Älä unohda syödä maksalaatikkoa jääkaapista','1'),
+  ('3', '1','koe','Lue matikan tenttiin','2'),
+  ('4', '2','katso breaking bad','Breaking bad tänään nelosella klo 21','3'),
+  ('5', '2','mene nukkumaan','uni tekee hyvää jee jee','4');
+SELECT setval('muistiinpano_tunnus_seq', 5);
 
 INSERT INTO luokka (tunnus, kayttaja, nimi) VALUES
-  ('11', '1','koulujutut'),
-  ('12', '1','liikunta'),
-  ('13', '1','arki'),
-  ('21', '2','tv'),
-  ('22', '2','arki');
+  ('1', '1','koulujutut'),
+  ('2', '1','liikunta'),
+  ('3', '1','arki'),
+  ('4', '2','tv'),
+  ('5', '2','arki');
+SELECT setval('luokka_tunnus_seq', 5);
 
 INSERT INTO luokan_muistiinpano (tunnus, muistiinpano, luokka) VALUES
-  ('1', '111','12'),
-  ('2', '111','13'),
-  ('3', '112','13'),
-  ('4', '113','11'),
-  ('5', '121','21'),
-  ('6', '122','22');
+  ('1', '1','2'),
+  ('2', '1','3'),
+  ('3', '2','3'),
+  ('4', '3','1'),
+  ('5', '4','4'),
+  ('6', '5','5');
+SELECT setval('luokan_muistiinpano_tunnus_seq', 6);
 
 

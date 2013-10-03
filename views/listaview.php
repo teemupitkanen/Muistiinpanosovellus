@@ -14,18 +14,26 @@
 
             <?php
             $muistilista = $tiedot->lista;
-// var_dump($muistilista);
             foreach ($muistilista as $pano) {
                 ?>
                 <tr>
-                    <td><?php echo $pano->otsikko; ?></td>
-                    <td>Arkiset</td>
-                    <td><?php echo $pano->prioriteetti; ?></td>
+                    <td><a href="muistiinpano.php?tunnus=<?php echo $pano->tunnus ?>"><?php echo $pano->otsikko; ?></a></td>
+                    <td>
+                        <?php
+                        include_once 'models/luokka.php';
+                        $luokat = Luokka::muistiinpanon_luokat($pano->tunnus);
+                        foreach ($luokat as $luokka) {
+                            echo $luokka->nimi;
+                            echo ", ";
+                        }
+//                        $stringit = array("asd", "wasdf");
+//                        echo implode(", ", $stringit);
+                        ?>
+                    </td>
+                    <?php include_once 'models/prioriteetti.php'; ?>
+                    <td><?php echo Prioriteetti::get_arvo($pano->prioriteetti, $tiedot->kayttaja); ?></td>
                 </tr>
-<?php } ?>
-
-
-
+            <?php } ?>
 
 
         </tbody>

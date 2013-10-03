@@ -7,15 +7,16 @@ password varchar NOT NULL
 
 --prioriteetti-taulun luonti
 CREATE TABLE prioriteetti(
+tunnus serial PRIMARY KEY,
 arvo integer,
 kayttaja integer REFERENCES kayttaja(id),
-kuvaus varchar,
-PRIMARY KEY(arvo, kayttaja)
+kuvaus varchar
+-- PRIMARY KEY(arvo, kayttaja)
 );
 
 --luokka-taulun luonti
 CREATE TABLE luokka(
-tunnus integer PRIMARY KEY,
+tunnus serial PRIMARY KEY,
 kayttaja integer REFERENCES kayttaja(id),
 nimi varchar
 );
@@ -26,8 +27,7 @@ tunnus serial PRIMARY KEY,
 kayttaja integer REFERENCES kayttaja(id),
 otsikko varchar NOT NULL,
 sisalto varchar,
-prioriteetti integer,
-FOREIGN KEY (prioriteetti, kayttaja) REFERENCES prioriteetti(arvo, kayttaja)
+prioriteetti integer REFERENCES prioriteetti(tunnus)
 );
 
 --luokan_muistiinpano-taulun luonti

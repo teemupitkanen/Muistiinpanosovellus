@@ -18,13 +18,19 @@
                     <option><?php echo $prio->arvo; ?></option>
 
 
-<?php } ?>
+                <?php } ?>
 
             </select>
             <br><br>
             <label>Luokka:</label>
-            <select>
-                <option>-</option>
+            <select name="luokka" id="luokka">
+                <?php
+                $luokat = $tiedot->luokat;
+                var_dump($luokat);
+                foreach ($luokat as $luokka) {
+                    ?>
+                    <option value="<?php echo $luokka->tunnus; ?>"><?php echo $luokka->nimi; ?></option>
+                <?php } ?>
             </select>
             <br><br>
             <label>Sisältö:</label>

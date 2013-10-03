@@ -20,7 +20,7 @@ class Muistiinpano {
 
     public function kayttajan_muistiinpanot($kayttajaid) {
         $yhteys = luo_yhteys();
-        $kysely = $yhteys->prepare('SELECT otsikko, prioriteetti FROM muistiinpano WHERE kayttaja = ? ORDER BY prioriteetti DESC');
+        $kysely = $yhteys->prepare('SELECT muistiinpano.otsikko, muistiinpano.prioriteetti, muistiinpano.tunnus FROM muistiinpano, prioriteetti WHERE muistiinpano.kayttaja = ? AND muistiinpano.prioriteetti = prioriteetti.tunnus ORDER BY prioriteetti.arvo DESC');
         if ($kysely->execute(array($kayttajaid))) {
             $muistiinpanot = array();
             while ($pano = $kysely->fetchObject()) {
@@ -29,6 +29,24 @@ class Muistiinpano {
             return $muistiinpanot;
         }
         return null;
+    }
+    public function muistiinpanon_tiedot($tunnus) {
+        $yhteys = luo_yhteys();
+        $kysely = $yhteys->prepare('SELECT otsikko, sisalto, prioriteetti FROM muistiinpano WHERE tunnus = ?');
+        $kysely->execute(array($tunnus));
+        return $kysely->fetchObject();
+    }
+    
+    
+
+    public function viimeisen_id($kayttaja) {
+        $yhteys = luo_yhteys();
+        $kysely = $yhteys->prepare('SELECT tunnus from muistiinpano where kayttaja = ? order by tunnus ASC');
+        $kysely->execute(array($kayttaja));
+        while ($tunnus = $kysely->fetchColumn()) {
+            $viimeinen = $tunnus;
+        }
+        return $viimeinen;
     }
 
 }
