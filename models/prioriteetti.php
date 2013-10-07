@@ -32,6 +32,12 @@ class Prioriteetti {
         $kysely->execute(array($tunnus));
         return $kysely->fetchColumn();
     }
+    public function get_prio($tunnus) {
+        $yhteys = luo_yhteys();
+        $kysely = $yhteys->prepare('SELECT arvo, kuvaus, kayttaja FROM prioriteetti WHERE tunnus = ?');
+        $kysely->execute(array($tunnus));
+        return $kysely->fetchObject();
+    }
 
     public function kayttajan_prioriteetit($kayttajaid) {
         $yhteys = luo_yhteys();

@@ -3,6 +3,8 @@
 require_once 'libs/yleiset.php';
 include 'models/luokka.php';
 
+varmista_kirjautuminen();
+
 $kayttajaid = $sessio->kayttaja_id;
 
 if (isset($_GET['uusi'])) {
@@ -37,7 +39,6 @@ if (isset($_GET['poista'])) {
     }
 }
 
-varmista_kirjautuminen();
 
 $tiedot->luokat = Luokka::kayttajan_luokat($kayttajaid);
 

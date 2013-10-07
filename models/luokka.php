@@ -27,7 +27,7 @@ class Luokka {
 
     public function muistiinpanon_luokat($muistiinpano) {
         $yhteys = luo_yhteys();
-        $kysely = $yhteys->prepare('SELECT luokka.nimi FROM luokka, luokan_muistiinpano WHERE luokan_muistiinpano.muistiinpano = ? AND luokka.tunnus=luokan_muistiinpano.luokka');
+        $kysely = $yhteys->prepare('SELECT luokka.nimi, luokka.tunnus FROM luokka, luokan_muistiinpano WHERE luokan_muistiinpano.muistiinpano = ? AND luokka.tunnus=luokan_muistiinpano.luokka');
         if ($kysely->execute(array($muistiinpano))) {
             $luokat = array();
             while ($luokka = $kysely->fetchObject()) {
@@ -65,13 +65,26 @@ class Luokka {
         $kysely = $yhteys->prepare('DELETE FROM luokka WHERE tunnus = ?');
         $kysely->execute(array($tunnus));
     }
+    
+    public function poista_yhteys($luokka, $muistiinpano){
+        $yhteys = luo_yhteys();
+        $kysely = $yhteys->prepare('DELETE FROM luokan_muistiinpano WHERE luokka = ? AND muistiinpano = ?');
+        $kysely->execute(array($luokka, $muistiinpano));
+    }
 
     public function maara($kayttaja) {
         $yhteys = luo_yhteys();
         $kysely = $yhteys->prepare('SELECT count(tunnus) FROM luokka WHERE kayttaja = ?');
         $kysely->execute(array($kayttaja));
         return $kysely->fetchColumn();
-    }    
+    }   
+    public function yhteyksien_maara($muistiinpano){
+        $yhteys = luo_yhteys();
+        $kysely = $yhteys->prepare('SELECT count(tunnus) FROM luokan_muistiinpano WHERE muistiinpano= ?');
+        $kysely->execute(array($muistiinpano));
+        return $kysely->fetchColumn();
+    }
+    
     public function onko_luokka_kaytossa($tunnus) {
         $yhteys = luo_yhteys();
         $kysely = $yhteys->prepare('SELECT tunnus FROM luokan_muistiinpano WHERE luokka = ?');

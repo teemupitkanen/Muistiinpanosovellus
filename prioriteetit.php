@@ -4,12 +4,15 @@ require_once 'libs/yleiset.php';
 include 'models/prioriteetti.php';
 include 'models/muistiinpano.php';
 
+varmista_kirjautuminen();
 $kayttajaid = $sessio->kayttaja_id;
 
 if (isset($_GET['uusi'])) {
     if ($_POST['arvo'] == NULL) {
         $tiedot->errormessage = "Prioriteetin arvona ei voi olla null!";
-    } else if (Prioriteetti::get_tunnus($_POST['arvo'], $kayttajaid) == NULL) {
+    }else if ($_POST['arvo'] > 1000 || $_POST['arvo']<-1000) {
+        $tiedot->errormessage = "Prioriteetin arvon on oltava väliltä -1000 - 1000!";
+    }else if (Prioriteetti::get_tunnus($_POST['arvo'], $kayttajaid) == NULL) {
         Prioriteetti::lisaa_prioriteetti($_POST['arvo'], $_POST['kuvaus'], $kayttajaid);
         $tiedot->positivemessage = "Prioriteetti lisätty!";
     } else {
@@ -21,7 +24,9 @@ if (isset($_GET['uusi'])) {
 if (isset($_GET['paivita'])) {
     if ($_POST['arvo'] == NULL) {
         $tiedot->errormessage = "Prioriteetin arvona ei voi olla null!";
-    } else if (Prioriteetti::get_tunnus($_POST['arvo'], $kayttajaid) == NULL || $_POST['arvo'] == $_POST['vanha_arvo']) {
+    } else if ($_POST['arvo'] > 1000 || $_POST['arvo']<-1000) {
+        $tiedot->errormessage = "Prioriteetin arvon on oltava väliltä -1000 - 1000!";
+    }else if (Prioriteetti::get_tunnus($_POST['arvo'], $kayttajaid) == NULL || $_POST['arvo'] == $_POST['vanha_arvo']) {
         Prioriteetti::paivita_prioriteetti($_POST['arvo'], $_POST['kuvaus'], $_POST['tunnus']);
         $tiedot->positivemessage = "Prioriteetti päivitetty!";
     } else {
@@ -41,7 +46,6 @@ if (isset($_GET['poista'])) {
 
 $tiedot->prioriteetit = Prioriteetti::kayttajan_prioriteetit($kayttajaid);
 
-varmista_kirjautuminen();
 
 naytaSivu("views/prioview.php", $tiedot);
 ?>

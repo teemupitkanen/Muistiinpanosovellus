@@ -1,1 +1,9 @@
-TESTAAMISEEN KÄYTTÄJÄTUNNUKSET: TUNNUS:testitunnus SALASANA:testisana
+Sovellus löytyy testaamista varten osoitteesta teempitk.users.cs.helsinki.fi
+
+Testitunnukset (käyttäjätunnus/salasana):
+
+testi1/salainen
+testi2/salaisempi
+esim/esim
+
+Myös omien tunnusten luonti luonnollisesti onnistuu. Valmiista tunnuksista esim-nimimerkillä on laajimmin testidataa.
