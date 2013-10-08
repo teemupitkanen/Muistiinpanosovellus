@@ -5,6 +5,17 @@ include 'models/kayttaja.php';
 include 'models/prioriteetti.php';
 include 'models/luokka.php';
 
+if(strlen($_POST['salasana'])<4){
+    ohjaa('rekisteroityminen.php?lyhytsala');
+}
+if(strlen($_POST['tunnus'])==""){
+    ohjaa('rekisteroityminen.php?tyhjatunnus');
+}
+
+if ($_POST['salasana'] != $_POST['salasana2']) {
+    ohjaa('rekisteroityminen.php?erisala');
+}
+
 if ($_POST['salasana'] != $_POST['salasana2']) {
     ohjaa('rekisteroityminen.php?erisala');
 }

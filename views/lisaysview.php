@@ -15,7 +15,7 @@
                 foreach ($prioriteetit as $prio) {
                     ?>
 
-                    <option>
+                    <option value="<?php echo $prio->arvo; ?>">
                         <?php 
                         echo $prio->arvo; 
                         echo " - ";

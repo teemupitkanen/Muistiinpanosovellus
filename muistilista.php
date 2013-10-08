@@ -15,7 +15,7 @@ if (isset($_GET['uusi'])) {
         foreach ($_POST['luokka'] as $luokka) {
             Luokka::lisaa_yhteys($luokka, Muistiinpano::viimeisen_id($kayttajaid));
         }
-    }else if($_POST['nimi']==""){
+    }else if(!isset($_POST['nimi']) || $_POST['nimi']==""){
         $tiedot->errormessage = "Muistiinpanon lisäys epäonnistui. Muistiinpanon nimi ei voi olla tyhjä!";
     }
     else{
