@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Tarkistaa, onko edellinen sivu välittänyt parametrina pyyntöjä suorittaa
+ * muutoksia tietokantaan, ja jos on, tekee ne. Lopuksi näyttää prioview-näkymän.
+ */
 require_once 'libs/yleiset.php';
 include 'models/prioriteetti.php';
 include 'models/muistiinpano.php';

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Tarksitaa rekisteröitymislomakkeen tiedot, ja ohjaa oikealle sivulle tiedoista riippuen.
+ */
 require_once 'libs/yleiset.php';
 include 'models/kayttaja.php';
 include 'models/prioriteetti.php';

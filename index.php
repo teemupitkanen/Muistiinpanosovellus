@@ -1,4 +1,8 @@
 <?php
+/**
+ * Sovelluksen kirjautumissivun kontrolleri. Näyttää kirjautumisnäkymän, ja 
+ * välittää mahdollisesti tänne ohjatessa saadun viestin näkymään
+ */
 
 require_once 'libs/yleiset.php';
 

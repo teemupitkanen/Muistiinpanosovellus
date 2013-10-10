@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Luokat-sivua hallinnoiva kontrolleri. Tarkistaa ensin onko käyttäjän luokkiin kohdistunut muutoksia, 
+ * ja jos on toteuttaa ne tietokantaan. Lopuksi näyttää luokkaview-näkymän.
+ */
 require_once 'libs/yleiset.php';
 include 'models/luokka.php';
 

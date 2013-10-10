@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Kirjautumistapahtumaa hallinnoiva kontrolleri. Sisäänkirjautuessa tunnistaa 
+ * käyttäjän ja ohjaa musitilistaan/ohjaa tunnistamattomat takaisin kirjautumissivulle.
+ * Uloskirjautuessa ohjaa kirjautumissivulle.
+ */
 require_once 'libs/yleiset.php';
 include 'models/kayttaja.php';
 

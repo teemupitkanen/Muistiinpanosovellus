@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Kontrolleri tarkistaa, onko sivulle ohjatessa välitetty get-parametreina
+ * viestejä, jotka edellyttäisivät muokkauksia tietokantaan. Jos on, ne suoritetaan
+ * mallien funktioiden avulla. Lopuksi näyttää listaview-näkymän.
+ */
 require_once 'libs/yleiset.php';
 include 'models/muistiinpano.php';
 include 'models/prioriteetti.php';

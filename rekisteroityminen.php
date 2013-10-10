@@ -1,6 +1,8 @@
 
 <?php
-
+/**
+ * Näyttää rekisteröitymisnäkymän.
+ */
 require_once 'libs/yleiset.php';
 if(isset($_GET['lyhytsala'])){
     $tiedot->errormessage = "Salasanan pituus on oltava ainakin 4 merkkiä!";

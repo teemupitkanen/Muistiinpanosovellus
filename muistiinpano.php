@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Kontrolleri tarkastaa ensin, onko sivulle ohjatessa annettu get-parametreina
+ * käskyjä, ja jos on,  toteuttaa sopivat käskyt tietokantaan mallien
+ * funktioiden avulla. Lopuksi näyttää musitiinpanoview-näkymän.
+ */
 require_once 'libs/yleiset.php';
 include 'models/muistiinpano.php';
 include 'models/luokka.php';
